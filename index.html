@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="En tydlig, interaktiv jämförelse av olika sätt att betala av skulder." />
+    <title>Skuldkompass — en plan som passar dig</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Skuldkompass, till sidans början">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-name">SKULDKOMPASS</span>
+      </a>
+      <nav class="header-nav" aria-label="Huvudmeny">
+        <a href="#metoder">Metoder</a>
+        <a href="#kalkylator">Kalkylator</a>
+        <a href="#sa-raknar-vi">Så räknar vi</a>
+      </nav>
+      <div class="header-note"><span class="live-dot"></span> LOKALT · INGA SKULDUPPGIFTER SPARAS</div>
+    </header>
+
+    <main id="top">
+      <section class="hero page-width" aria-labelledby="hero-title">
+        <p class="eyebrow"><span class="eyebrow-line"></span> DIN VÄG MOT SKULDFRIHET</p>
+        <h1 id="hero-title">Varje betalning<br /><span>tar dig närmare.</span></h1>
+        <p class="hero-intro">Se hur dina val påverkar skuldfri-dagen. Hitta en plan som känns möjlig att följa — och börja med nästa steg.</p>
+        <div class="hero-steps" aria-label="Tre steg till en tydligare plan">
+          <div class="hero-step"><span>1</span><strong>Lägg in skulderna</strong></div>
+          <i aria-hidden="true"></i>
+          <div class="hero-step"><span>2</span><strong>Jämför strategier</strong></div>
+          <i aria-hidden="true"></i>
+          <div class="hero-step"><span>3</span><strong>Se ditt mål</strong></div>
+        </div>
+        <a class="hero-cta" href="#kalkylator">Räkna på min plan <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="method-strip page-width" id="metoder" aria-label="Fyra sätt att jämföra">
+        <div class="method-heading"><p class="eyebrow">FYRA STRATEGIER · EN SKULDFRI DAG</p><h2>Välj din <span>väg framåt.</span></h2><p>För pekaren över eller fokusera ett kort för att läsa mer.</p></div>
+        <div class="method-intros">
+          <article class="method-card method-snowball" role="button" tabindex="0" aria-expanded="false"><span class="method-index">01</span><div class="method-card-content"><div class="method-card-heading"><h3>Snöboll</h3><span class="method-hint">Visa mer <b>＋</b></span></div><p>Börja med minsta skulden. Varje avbetalning ger en tidig vinst och mer fart till nästa.</p><span class="method-tag">TIDIGA VINSTER</span></div><span class="method-symbol" aria-hidden="true">↘</span></article>
+          <article class="method-card method-avalanche" role="button" tabindex="0" aria-expanded="false"><span class="method-index">02</span><div class="method-card-content"><div class="method-card-heading"><h3>Lavin</h3><span class="method-hint">Visa mer <b>＋</b></span></div><p>Prioritera högsta räntan. Minska räntekostnaden genom att gå på dyraste skulden först.</p><span class="method-tag">MINDRE RÄNTA</span></div><span class="method-symbol" aria-hidden="true">⌁</span></article>
+          <article class="method-card method-minimum" role="button" tabindex="0" aria-expanded="false"><span class="method-index">03</span><div class="method-card-content"><div class="method-card-heading"><h3>Minimibelopp</h3><span class="method-hint">Visa mer <b>＋</b></span></div><p>Betala bara det lägsta beloppet på varje skuld. Se hur lång tid det kan ta.</p><span class="method-tag">JÄMFÖRELSEGRUND</span></div><span class="method-symbol" aria-hidden="true">＝</span></article>
+          <article class="method-card method-freedom" role="button" tabindex="0" aria-expanded="false"><span class="method-index">04</span><div class="method-card-content"><div class="method-card-heading"><h3>Frihetsandelen</h3><span class="method-hint">Visa mer <b>＋</b></span></div><p>Följ lavinordningen och välj en procent av frigjorda minimibelopp att använda själv.</p><span class="method-tag">DIN BALANS</span></div><span class="method-symbol" aria-hidden="true">↗</span></article>
+        </div>
+      </section>
+
+      <section class="calculator-section" id="kalkylator" aria-labelledby="calculator-title">
+        <div class="page-width">
+          <div class="section-heading">
+            <div><p class="eyebrow">BÖRJA HÄR</p><h2 id="calculator-title">Din plan, <em>i siffror.</em></h2></div>
+            <p>Ändra uppgifterna för att jämföra scenarier. Resultaten är uppskattningar, inte instruktioner för dina faktiska betalningar. Uppgifterna stannar i webbläsaren.</p>
+          </div>
+
+          <div class="calculator-grid">
+            <aside class="input-panel" aria-label="Dina uppgifter">
+              <div class="panel-topline"><span class="panel-kicker">01 — UNDERLAG</span><span class="demo-badge">DEMOEXEMPEL</span></div>
+              <h3>Dina skulder</h3>
+              <p class="panel-description">Lägg in saldo, årsränta och lägsta månadsbetalning för varje skuld.</p>
+              <div class="debt-list" id="debt-list" aria-live="polite"></div>
+              <button class="add-debt-button" id="add-debt" type="button"><span aria-hidden="true">＋</span> Lägg till en skuld</button>
+
+              <div class="panel-divider"></div>
+              <div class="input-group">
+                <label for="monthly-extra">Extra amortering per månad</label>
+                <div class="money-input"><input id="monthly-extra" inputmode="decimal" type="number" min="0" step="100" value="2500" /><span>kr</span></div>
+                <p class="field-hint">Utöver summan av minimibeloppen. Går till vald skuld enligt varje metod.</p>
+              </div>
+              <div class="freedom-control" id="freedom-options">
+                <div class="freedom-control-heading">
+                  <span class="panel-kicker">FRIHETSANDELEN</span>
+                  <p>Välj hur stor del av varje frigjort minimibelopp du vill ta ut.</p>
+                </div>
+                <div class="freedom-percent-heading"><label for="freedom-percent">Andel av varje frigjort minimibelopp till dig</label><strong id="freedom-percent-value">0 %</strong></div>
+                <input id="freedom-percent" type="range" min="0" max="100" step="1" value="0" aria-describedby="freedom-percent-hint" />
+                <div class="range-ends"><span>0 % · allt vidare</span><span>100 % · allt till dig</span></div>
+                <div class="freedom-percent-preview" id="freedom-percent-preview"></div>
+                <p class="field-hint" id="freedom-percent-hint">Vid 0 % tas inga pengar ut och beräkningen blir samma som lavinen. Sista betalningsmånaden ger inget uttag.</p>
+              </div>
+              <div class="minimum-summary"><div><span>Minimibelopp totalt</span><strong id="minimum-total">4 000 kr</strong></div><div><span>Totalt att betala / mån</span><strong id="debt-total">6 500 kr</strong></div></div>
+              <p class="input-error" id="input-error" role="status" hidden></p>
+              <button class="reset-button" id="reset-demo" type="button">Återställ demoexemplet</button>
+            </aside>
+
+            <div class="results-panel" aria-label="Jämförelse av återbetalningsmetoder">
+              <div class="results-topline"><span class="panel-kicker">02 — JÄMFÖRELSE</span><button class="print-button" id="print-results" type="button"><span aria-hidden="true">↗</span> Skriv ut / spara PDF</button></div>
+              <div class="strategy-grid" id="strategy-grid" role="tablist" aria-label="Välj metod att visa"></div>
+              <div class="result-detail" id="result-detail" aria-live="polite">
+                <div class="detail-heading">
+                  <div><span class="panel-kicker" id="selected-kicker">VALD METOD</span><h3 id="selected-title">Lavin</h3></div>
+                  <p id="selected-description"></p>
+                </div>
+                <div class="comparison-banner" id="comparison-banner">
+                  <div class="comparison-main"><span class="comparison-check" aria-hidden="true">✓</span><div><span class="comparison-kicker" id="comparison-kicker">DIN SKULDFRIA DAG</span><h4 id="comparison-title">—</h4><p id="comparison-copy">Jämfört med enbart minimibelopp.</p></div></div>
+                  <div class="comparison-stats"><div><strong id="comparison-time">—</strong><span id="comparison-time-label">tid mot minimi</span></div><div><strong id="comparison-interest">—</strong><span id="comparison-interest-label">räntekostnad mot minimi</span></div></div>
+                </div>
+                <div class="metric-row">
+                  <div class="metric metric-primary"><span>SKULDFRI OM</span><strong id="metric-time">—</strong><small>från idag</small></div>
+                  <div class="metric"><span>RÄNTA TOT.</span><strong id="metric-interest">—</strong><small>under hela planen</small></div>
+                  <div class="metric freedom-metric" id="freedom-metric"><span>TILL DIG</span><strong id="metric-fun">—</strong><small>totalt under planen</small></div>
+                </div>
+                <div class="freedom-uses" id="freedom-uses" hidden>
+                  <div class="freedom-uses-heading"><div><span class="panel-kicker">OM DU TAR UT PENGAR</span><h4>Vad skulle summan kunna bli?</h4></div><p>Tre möjliga användningar av samma summa.</p></div>
+                  <p class="freedom-use-empty" id="freedom-use-empty" hidden>Välj en andel över 0 % för att se exempel.</p>
+                  <div class="freedom-use-grid" id="freedom-use-examples">
+                    <article><span class="use-type">TRYGGHET</span><h5>Buffert</h5><strong id="use-buffer">—</strong><p>En reserv för oväntade utgifter.</p></article>
+                    <article><span class="use-type">BOENDE</span><h5>Kontantinsats</h5><strong id="use-downpayment">—</strong><p>Ett möjligt tillskott till ett framtida bostadsköp.</p></article>
+                    <article><span class="use-type">SPARANDE</span><h5>Fondsparande</h5><strong id="use-invest-count">—</strong><p id="use-invest-note">Extra insättningar à 500 kr. Ingen avkastning inräknad.</p><p class="investment-risk-note">Fondvärdet kan både öka och minska. Du kan förlora hela eller delar av det insatta kapitalet. <a href="https://www.fi.se/sv/for-konsumenter/spara/fakta-om-fonder/">Läs om fondrisk hos FI</a>.</p></article>
+                  </div>
+                </div>
+                <div class="chart-block">
+                  <div class="chart-heading"><div><span class="panel-kicker">SKULDENS UTVECKLING</span><p>Beräknat saldo över tid</p></div><span class="chart-unit">KR</span></div>
+                  <div class="chart-frame" id="chart-frame"><svg id="balance-chart" viewBox="0 0 760 260" role="img" aria-label="Diagram över skuldens utveckling mellan metoderna"></svg></div>
+                  <div class="chart-legend" id="chart-legend"></div>
+                </div>
+                <div class="insight-box" id="insight-box"><span class="insight-icon" aria-hidden="true">i</span><p id="insight-text"></p></div>
+                <details class="schedule-details">
+                  <summary>Visa månad-för-månad-översikt <span aria-hidden="true">＋</span></summary>
+                  <div class="table-scroll"><table><thead><tr><th>Månad</th><th>Betalat</th><th>Ränta</th><th>Kvar</th><th id="fun-column-heading" hidden>Till dig</th></tr></thead><tbody id="schedule-body"></tbody></table></div>
+                </details>
+              </div>
+              <div class="invalid-state" id="invalid-state" hidden>
+                <span class="invalid-mark">!</span><h3>Justera din plan</h3><p id="invalid-copy">Kontrollera att varje skuld har ett saldo, en ränta och ett minimibelopp.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="assumptions page-width" id="sa-raknar-vi">
+        <div class="assumptions-heading"><p class="eyebrow">TYDLIGA ANTAGANDEN</p><h2>En kalkyl du<br /><em>kan förstå.</em></h2></div>
+        <div class="assumptions-content">
+          <p class="assumptions-lead">Resultatet är en förenklad uppskattning, inte en prognos från din långivare. Verkliga lån kan räkna ränta, avgifter och minimibelopp på andra sätt.</p>
+          <aside class="important-notice" aria-labelledby="notice-title">
+            <div class="notice-heading"><span class="notice-icon" aria-hidden="true">!</span><div><span class="panel-kicker">VIKTIGT ATT VETA</span><h3 id="notice-title">Ett jämförelseverktyg – inte personlig rådgivning.</h3><p>Skuldkompass är ett oberoende utbildningsprojekt, inte personlig ekonomisk, juridisk, skatte- eller investeringsrådgivning. Det analyserar inte hela din ekonomi, bedömer inte betalningsförmåga och utför inga betalningar.</p></div></div>
+            <div class="notice-grid">
+              <div><h4>Kontrollera lånet själv</h4><p>Räknaren förenklar räntor och betalningar. Kontrollera alltid långivarens avi och villkor och fortsätt betala enligt avtalet. Ändra inte en betalning enbart utifrån den här simuleringen.</p></div>
+              <div><h4>Fondsparande innebär risk</h4><p>Exemplet visar bara tänkbara insättningar; det rekommenderar inte att du investerar eller väljer någon fond. Fondvärden kan öka och minska, och du kan förlora delar av eller hela kapitalet. <a href="https://www.fi.se/sv/for-konsumenter/spara/fakta-om-fonder/">Finansinspektionen om fondrisk</a>.</p></div>
+              <div><h4>Behöver du stöd?</h4><p>Om ekonomin inte går ihop kan kommunens budget- och skuldrådgivning hjälpa dig att planera och prioritera. Rådgivningen är kostnadsfri. <a href="https://www.konsumentverket.se/ekonomi/kommunal-budget-och-skuldradgivning/">Hitta rådgivning via Konsumentverket</a>.</p></div>
+            </div>
+            <p class="notice-footer">Skuldvärdena hanteras i din webbläsare och skickas inte av kalkylatorn. Webbhotellet kan ändå behandla tekniska besöksuppgifter; <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages loggar besökares IP-adresser av säkerhetsskäl</a>. Projektet är inte kopplat till Dave Ramsey, DebtSnowball.com, någon långivare eller myndighet.</p>
+          </aside>
+          <div class="assumption-list">
+            <div><span>01</span><p>Räntan anges som årsränta och beräknas månadsvis på kvarvarande saldo.</p></div>
+            <div><span>02</span><p>Ränta läggs till först, sedan betalas minimibelopp och vald extraamortering.</p></div>
+            <div><span>03</span><p>Snöboll och lavin använder minimibeloppen plus din extraamortering varje månad. Inga nya lån, avgifter eller ränteändringar ingår.</p></div>
+            <div><span>04</span><p>Frihetsandelen följer lavinordningen. Välj en gemensam procentandel av varje frigjort minimibelopp att ta ut efter att en skuld är betald; resten förs vidare. Vid 0 % blir resultatet samma som lavinen. Sista skulden ger inget uttag.</p></div>
+          </div>
+          <p class="privacy-note"><span class="lock-icon" aria-hidden="true">◇</span> Kalkylatorn skickar inte skulduppgifter och sparar dem inte; inmatningen nollställs när sidan laddas om. Webbhotellet kan logga tekniska besöksuppgifter, som IP-adress.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span class="brand-name">SKULDKOMPASS</span></a>
+      <span>ETT OBEROENDE LÄRPROJEKT · SVERIGE</span>
+      <a href="#top" class="back-top">TILL TOPPEN ↑</a>
+    </footer>
+  </body>
+</html>

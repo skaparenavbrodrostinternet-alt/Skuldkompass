@@ -1,0 +1,9 @@
+{
+  "name": "skuldkompass",
+  "version": "1.0.0",
+  "private": true,
+  "description": "En interaktiv svensk kalkylator för jämförelse av återbetalningsmetoder.",
+  "scripts": {
+    "dev": "node server.mjs"
+  }
+}
